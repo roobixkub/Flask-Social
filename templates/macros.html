@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jun 13 22:53:03 2020
+
+@author: Nate
+"""
+
+
+{% macro render_field(field) %}
+    <div class="field">
+        {% if field.errors %}
+            {% for error in field.errors %}
+                <div class="notification error">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        {{ field(placeholder=field.label.text) }}
+    </div>
+{% endmacro %}
